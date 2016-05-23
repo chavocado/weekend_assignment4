@@ -103,6 +103,8 @@ function deleteTask() {
             url: '/todo/' + taskID,
             success: function() {
                 showTasks();
+                var boo = new Audio('../assets/audio/mk64_boo_laugh.wav');
+                boo.play();
             }
         });
     }
