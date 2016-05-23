@@ -28,7 +28,7 @@ function showTasks() {
                 $container.data('status', task.status);
 
                 if (task.status == 'IN_PROGRESS') {
-                    $container.append('<td>In Progress!</td><td><button class="status progress">Complete</button></td>');
+                    $container.append('<td>DO WORK!!!</td><td><button class="status progress">Complete</button></td>');
                     $container.addClass('incomplete ' + task.id);
                     $container.append('<td><button class="delete">Delete</button></td>');
                     $('#tasks').append($container);
@@ -86,6 +86,8 @@ function changeStatus() {
         data: taskID,
         success: function() {
             showTasks();
+            var toad = new Audio('../assets/audio/mk64_toad03.wav');
+            toad.play();
         }
     });
 }

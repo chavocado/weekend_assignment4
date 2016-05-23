@@ -1,12 +1,48 @@
 body{
+  background-image: url("../images/purplered.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: peachpuff;
+  font-family: 'Loved by the King', cursive;
+}
+.box{
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+table {
+  margin: auto;
 }
 .incomplete{
-  background: white;
+  animation: rainbow 10s infinite;
+}
+@keyframes rainbow {
+    0% {background-color: red;}
+    30% {background-color: orange;}
+    50% {background-color: yellow;}
+    70% {background-color: orange;}
+    100% {background-color: red;}
 }
 .joke{
   background-color: black;
 }
 .complete{
-  background-color: #1bb;
+  animation: completed 10s infinite;
+}
+@keyframes completed{
+  0% {background-color: #36E0DF;}
+  10% {background-color: #2FC4F7;}
+  20% {background-color: #2D89ED;}
+  30% {background-color: #2FC4F7;}
+  40% {background-color: #36E0DF;}
+  50% {background-color: #2FF7BE;}
+  60% {background-color: #36E0DF;}
+  70% {background-color: #2FC4F7;}
+  80% {background-color: #2D89ED;}
+  90% {background-color: #2FC4F7;}
+  100% {background-color: #36E0DF;}
+}
+
+.hide{
+  display: none;
 }
