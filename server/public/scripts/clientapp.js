@@ -35,7 +35,7 @@ function showTasks() {
                     $('#tasks').append($container);
 
                 } else {
-                    $container.append('<td>YOU DID IT!!</td><td><button class="status done" disabled></button></td>');
+                    $container.append('<td>YOU DID IT!!</td><td><button class="status done" disabled>Good Job.</button></td>');
                     $container.addClass('complete');
                     $container.append('<td><button class="delete">Delete</button></td>');
                     $('#tasks').append($container);
