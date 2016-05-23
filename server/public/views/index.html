@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weekend 4 To do</title>
+    <script src="../assets/vendors/jquery.min.js"></script>
+    <script src="../scripts/clientapp.js"></script>
+    <link rel="stylesheet" href="../assets/styles/stylesheet.css"/>
+  </head>
+  <body>
+    <h1>Weekend 4 To do</h1>
+    <form id="taskForm">
+      <label for="name">Task:</label>
+      <input type="text" id="name" name="name" />
+
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" placeholder="Do the stuff and things."></textarea>
+
+      <label for="status"></label>
+      <input class="hide" type="radio" id="status" name="status" value="IN_PROGRESS" checked />
+
+      <button id="submit">-Submit-</button>
+    </form>
+    <div id="container">
+    <table id="todo-list">
+        <thead>
+          <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+      <tbody id = "tasks">
+      </tbody>
+    </table>
+    </div>
+  </body>
+</html>
