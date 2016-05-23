@@ -4,3 +4,4 @@ CREATE TABLE todo (
 	description character varying(255),
 	status character varying(30)
 );
+ 
