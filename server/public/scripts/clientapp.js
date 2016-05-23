@@ -3,7 +3,7 @@ $(document).ready(function () {
   showTasks();
   $('#submit').on('click', postTask);
   $('#container').on('click', '.status', changeStatus);
-  //$('#container').on('click', '.delete', deleteItem);
+  $('#container').on('click', '.delete', deleteTask);
 });
 
 function showTasks() {
@@ -24,7 +24,7 @@ function showTasks() {
                 //container data prep
                 //console.log($container);
                 $container.data('taskID', task.id);
-                $container.data('name', task.name);
+                $container.data('name', task.task_name);
                 $container.data('status', task.status);
 
                 if (task.status == 'IN_PROGRESS') {
@@ -71,20 +71,37 @@ function postTask() {
 
 
 function changeStatus() {
-    //event.preventDefault();
-    var statusID = {};
+    event.preventDefault();
+    var taskID = {};
     console.log('you clicked me');
-      statusID.data().id = $(this).parent().data('taskID');
+        taskID.id = $(this).parent().parent().data('taskID');
         //$(this).parent().parent().toggleClass('joke');
-      statusID.data().status = $(this).parent().data('COMPLETED');
+        //statusID.status = $(this).parent().parent().data('status');
         //statusID.id = taskID;
-        console.log(statusID);
+        // console.log(statusID);
+        console.log('you clicked me',taskID);
     $.ajax({
         type: 'PUT',
         url: '/todo/status',
-        data: statusID,
+        data: taskID,
         success: function() {
             showTasks();
         }
     });
+}
+function deleteTask() {
+    event.preventDefault();
+    var name = $(this).parent().parent().data('name');
+    var taskID = $(this).parent().parent().data('taskID');
+    var delTask = confirm('Are you sure you want to delete ' + name + '?');
+
+    if (delTask) {
+        $.ajax({
+            type: 'DELETE',
+            url: '/todo/' + taskID,
+            success: function() {
+                showTasks();
+            }
+        });
+    }
 }
