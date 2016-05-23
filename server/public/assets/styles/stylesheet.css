@@ -23,9 +23,6 @@ table {
     70% {background-color: orange;}
     100% {background-color: red;}
 }
-.joke{
-  background-color: black;
-}
 .complete{
   animation: completed 10s infinite;
 }
@@ -42,7 +39,6 @@ table {
   90% {background-color: #2FC4F7;}
   100% {background-color: #36E0DF;}
 }
-
 .hide{
   display: none;
 }

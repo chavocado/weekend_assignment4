@@ -9,12 +9,10 @@ var connectionString = 'postgres://localhost:5432/weekend04';
 
 //routes variables
 var todo = require('./routes/todo');
-//var moduleB = require('./routes/moduleB');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 //routes
 app.use('/todo', todo);
-//app.use('/moduleB', moduleB);
 
 // Catchall route
 app.get('/*', function (req, res) {

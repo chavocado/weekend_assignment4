@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 
 function showTasks() {
-
+    //clear old table on load
     $('#tasks').empty();
     $.ajax({
         type: 'GET',
@@ -21,12 +21,13 @@ function showTasks() {
                     $container.append($el);
                 });
                 //console.log(task, taskData);
+
                 //container data prep
                 //console.log($container);
                 $container.data('taskID', task.id);
                 $container.data('name', task.task_name);
                 $container.data('status', task.status);
-
+                //checking status to change table accordingly
                 if (task.status == 'IN_PROGRESS') {
                     $container.append('<td>DO WORK!!!</td><td><button class="status progress">Complete</button></td>');
                     $container.addClass('incomplete ' + task.id);
@@ -34,7 +35,7 @@ function showTasks() {
                     $('#tasks').append($container);
 
                 } else {
-                    $container.append('<td>Complete!</td><td><button class="status done" disabled></button></td>');
+                    $container.append('<td>YOU DID IT!!</td><td><button class="status done" disabled></button></td>');
                     $container.addClass('complete');
                     $container.append('<td><button class="delete">Delete</button></td>');
                     $('#tasks').append($container);
@@ -69,17 +70,13 @@ function postTask() {
     });
 }
 
-
+//change and update status
 function changeStatus() {
     event.preventDefault();
     var taskID = {};
     console.log('you clicked me');
         taskID.id = $(this).parent().parent().data('taskID');
-        //$(this).parent().parent().toggleClass('joke');
-        //statusID.status = $(this).parent().parent().data('status');
-        //statusID.id = taskID;
-        // console.log(statusID);
-        console.log('you clicked me',taskID);
+        //console.log('you clicked me',taskID);
     $.ajax({
         type: 'PUT',
         url: '/todo/status',
@@ -91,6 +88,7 @@ function changeStatus() {
         }
     });
 }
+//deleting task function
 function deleteTask() {
     event.preventDefault();
     var name = $(this).parent().parent().data('name');
